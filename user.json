@@ -1,0 +1,15 @@
+{
+  "weChatInfo": {
+    "openId": "抓包得到的 WeChat openId",
+    "unionId": "抓包得到的 WeChat unionId"
+  },
+  "location": {
+    "country": "中国",
+    "province": "省",
+    "city": "市",
+    "adcode": "邮政编码",
+    "address": "具体地址"
+  },
+  "version": "1.6.31",
+  "ServerChan": "https://sct.ftqq.com/sendkey"
+}
