@@ -9,10 +9,6 @@ import (
 
 var Conf *model.Config
 
-func init() {
-	Conf = ReadConfig()
-}
-
 func ReadFromPath(path string) ([]byte, error) {
 	file, err := os.Open(path)
 	if err != nil {
@@ -25,8 +21,8 @@ func ReadFromPath(path string) ([]byte, error) {
 	return bytes, nil
 }
 
-func ReadConfig() *model.Config {
-	bytes, err := ReadFromPath(Configuration)
+func ReadConfig(path string) *model.Config {
+	bytes, err := ReadFromPath(path)
 	if err != nil {
 		panic(err)
 	}

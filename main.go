@@ -1,19 +1,20 @@
 package main
 
 import (
+	"github.com/robfig/cron/v3"
 	"math/rand"
+	"os"
 	"time"
 	"xyb/form"
 	"xyb/notice"
 	"xyb/request"
-
-	"github.com/robfig/cron/v3"
 )
 
 func Sign() {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	time.Sleep(time.Second * 60 * time.Duration(r.Intn(30)))
-	InitServiceInfo()
+	InitServiceInfo(os.Args[1])
+	println(os.Args[1])
 	var cookie = SystemInfo.Cookie
 	var info = &SystemInfo
 
@@ -36,10 +37,10 @@ func Sign() {
 func main() {
 	ch := make(chan struct{})
 	c := cron.New()
-	c.AddFunc("00 6 * * *", func() {
+	c.AddFunc("30 8 * * *", func() {
 		Sign()
 	})
-	c.AddFunc("00 23 * * *", func() {
+	c.AddFunc("00 18 * * *", func() {
 		Sign()
 	})
 	c.Start()

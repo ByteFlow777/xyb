@@ -13,7 +13,9 @@ var SystemInfo model.SystemInfo
 
 var conf = config.Conf
 
-func InitServiceInfo() {
+func InitServiceInfo(path string) {
+	config.ReadConfig(path)
+
 	loginResponse, err := request.Login(form.NewLoginForm())
 	if err != nil {
 		notice.Error(err)
